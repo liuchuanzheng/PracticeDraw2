@@ -44,5 +44,9 @@ public class Practice01LinearGradientView extends View {
                 Color.parseColor("#2196F3"),Shader.TileMode.MIRROR);
         paint.setShader(shader2);
         canvas.drawCircle(800, 300, 200, paint);
+        Shader shader3 = new LinearGradient(600,100,700,200, Color.parseColor("#E91E63"),
+                Color.parseColor("#2196F3"),Shader.TileMode.REPEAT);
+        paint.setShader(shader3);
+        canvas.drawCircle(800, 800, 200, paint);
     }
 }

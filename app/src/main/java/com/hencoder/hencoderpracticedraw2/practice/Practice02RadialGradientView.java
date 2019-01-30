@@ -2,7 +2,10 @@ package com.hencoder.hencoderpracticedraw2.practice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.RadialGradient;
+import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -30,7 +33,23 @@ public class Practice02RadialGradientView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        /*
+        * 辐射渐变很好理解，就是从中心向周围辐射状的渐变
+        * */
+        Shader shader1 = new RadialGradient(300, 300, 200,
+                Color.parseColor("#E91E63"),
+                Color.parseColor("#2196F3"), Shader.TileMode.CLAMP);
+        paint.setShader(shader1);
         canvas.drawCircle(300, 300, 200, paint);
+        Shader shader2 = new RadialGradient(800, 300, 100,
+                Color.parseColor("#E91E63"),
+                Color.parseColor("#2196F3"), Shader.TileMode.MIRROR);
+        paint.setShader(shader2);
+        canvas.drawCircle(800, 300, 200, paint);
+        Shader shader3 = new RadialGradient(800, 800, 100,
+                Color.parseColor("#E91E63"),
+                Color.parseColor("#2196F3"), Shader.TileMode.REPEAT);
+        paint.setShader(shader3);
+        canvas.drawCircle(800, 800, 200, paint);
     }
 }
