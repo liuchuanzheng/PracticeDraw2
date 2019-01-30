@@ -3,7 +3,9 @@ package com.hencoder.hencoderpracticedraw2.practice;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.LinearGradient;
 import android.graphics.Paint;
+import android.graphics.Shader;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -31,7 +33,16 @@ public class Practice01LinearGradientView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
+        /*
+        * Shader.TileMode 表示在你规定的范围之外,画笔的颜色模式.当然你用不用边界之外那是另一回事
+        * */
+        Shader shader1 = new LinearGradient(100,100,500,500, Color.parseColor("#E91E63"),
+                Color.parseColor("#2196F3"),Shader.TileMode.CLAMP);
+        paint.setShader(shader1);
         canvas.drawCircle(300, 300, 200, paint);
+        Shader shader2 = new LinearGradient(600,100,700,200, Color.parseColor("#E91E63"),
+                Color.parseColor("#2196F3"),Shader.TileMode.MIRROR);
+        paint.setShader(shader2);
+        canvas.drawCircle(800, 300, 200, paint);
     }
 }
